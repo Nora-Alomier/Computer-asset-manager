@@ -68,6 +68,7 @@ Controller -> Service -> Repository -> H2 Database
 | Operation | Method | Endpoint |
 |---|---|---|
 | Add a computer | POST | `/api/v1/computers` |
+| Retrieve all computers | GET | `/api/v1/computers/all` |
 | Retrieve paginated computers | GET | `/api/v1/computers?page=0&size=5` |
 | Find a computer by ID | GET | `/api/v1/computers/{id}` |
 | Update a computer | PUT | `/api/v1/computers/{id}` |
