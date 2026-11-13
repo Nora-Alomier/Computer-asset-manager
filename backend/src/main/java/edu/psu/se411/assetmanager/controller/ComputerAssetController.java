@@ -1,6 +1,7 @@
 package edu.psu.se411.assetmanager.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -34,10 +35,16 @@ public class ComputerAssetController {
 	}
 
 	@GetMapping
-	public ResponseEntity<Page<ComputerAsset>> getAllComputers(
+	public ResponseEntity<Page<ComputerAsset>> getComputersByPage(
 			@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "5") int size) {
 		return ResponseEntity.ok(computerAssetService.getAllComputers(page, size));
+	}
+
+	@GetMapping("/all")
+	public ResponseEntity<List<ComputerAsset>> getAllComputers() {
+		return ResponseEntity.ok(
+				computerAssetService.getAllComputers(0, Integer.MAX_VALUE).getContent());
 	}
 
 	@GetMapping("/{id}")
